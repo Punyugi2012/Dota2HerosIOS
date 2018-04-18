@@ -13,6 +13,27 @@ struct Heros:Decodable {
     var img: String
 }
 
+extension UIImageView {
+    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() {
+                self.image = image
+            }
+            }.resume()
+    }
+    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloadedFrom(url: url, contentMode: mode)
+    }
+}
+
 class ViewController: UIViewController, UICollectionViewDataSource {
 
     @IBOutlet weak var myCollectionView: UICollectionView!
@@ -45,9 +66,11 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroCell", for: indexPath) as? HeroCollectionViewCell {
             cell.heroName.text = heros[indexPath.row].localized_name
-            cell.heroImage.image = UIImage(named: "Background")
+            let defaultLink = "https://api.opendota.com"
+            cell.heroImage.downloadedFrom(link: defaultLink + heros[indexPath.row].img)
             cell.heroImage.layer.cornerRadius = cell.heroImage.frame.height / 2
             cell.heroImage.clipsToBounds = true
+            cell.heroImage.contentMode = .scaleAspectFill
             return cell
         }
         return UICollectionViewCell()
