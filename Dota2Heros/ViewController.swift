@@ -13,8 +13,11 @@ struct Heros:Decodable {
     var img: String
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UICollectionViewDataSource {
+
+    @IBOutlet weak var myCollectionView: UICollectionView!
     var heros: [Heros] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let url = URL(string: "https://api.opendota.com/api/heroStats")
@@ -26,12 +29,27 @@ class ViewController: UIViewController {
                 catch {
                     print("Parse Fail")
                 }
-                print(self.heros)
+                DispatchQueue.main.async {
+                    self.myCollectionView.reloadData()
+                }
             }
             else {
                 print("Found Error")
             }
         }.resume()
     }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return heros.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroCell", for: indexPath) as? HeroCollectionViewCell {
+            cell.heroName.text = heros[indexPath.row].localized_name
+            cell.heroImage.image = UIImage(named: "background")
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    
 }
 
