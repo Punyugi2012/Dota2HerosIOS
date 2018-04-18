@@ -37,10 +37,19 @@ extension UIImageView {
 class ViewController: UIViewController, UICollectionViewDataSource {
 
     @IBOutlet weak var myCollectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var refreshController: UIRefreshControl!
+    
     var heros: [Heros] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        feedData()
+        self.refreshController = UIRefreshControl()
+        self.refreshController.addTarget(self, action: #selector(feedData), for: .valueChanged)
+        self.myCollectionView.addSubview(self.refreshController)
+    }
+    @objc func feedData() {
         let url = URL(string: "https://api.opendota.com/api/heroStats")
         URLSession.shared.dataTask(with: url!) { (data, reponse, error) in
             if error == nil {
@@ -52,12 +61,14 @@ class ViewController: UIViewController, UICollectionViewDataSource {
                 }
                 DispatchQueue.main.async {
                     self.myCollectionView.reloadData()
+                    self.activityIndicator.stopAnimating()
+                    self.refreshController.endRefreshing()
                 }
             }
             else {
                 print("Found Error")
             }
-        }.resume()
+            }.resume()
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return heros.count
@@ -74,6 +85,9 @@ class ViewController: UIViewController, UICollectionViewDataSource {
             return cell
         }
         return UICollectionViewCell()
+    }
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
 }
