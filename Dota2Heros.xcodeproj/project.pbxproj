@@ -13,6 +13,7 @@
 		B881B79D20861DA7000EAF25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B881B79C20861DA7000EAF25 /* Assets.xcassets */; };
 		B881B7A020861DA7000EAF25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881B79E20861DA7000EAF25 /* LaunchScreen.storyboard */; };
 		B881B7A82086E6C1000EAF25 /* HeroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881B7A72086E6C1000EAF25 /* HeroCollectionViewCell.swift */; };
+		B881B7AA20870388000EAF25 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881B7A920870388000EAF25 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B881B79F20861DA7000EAF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B881B7A120861DA7000EAF25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B881B7A72086E6C1000EAF25 /* HeroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCollectionViewCell.swift; sourceTree = "<group>"; };
+		B881B7A920870388000EAF25 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				B881B79E20861DA7000EAF25 /* LaunchScreen.storyboard */,
 				B881B7A120861DA7000EAF25 /* Info.plist */,
 				B881B7A72086E6C1000EAF25 /* HeroCollectionViewCell.swift */,
+				B881B7A920870388000EAF25 /* Reachability.swift */,
 			);
 			path = Dota2Heros;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			files = (
 				B881B79820861DA4000EAF25 /* ViewController.swift in Sources */,
 				B881B7A82086E6C1000EAF25 /* HeroCollectionViewCell.swift in Sources */,
+				B881B7AA20870388000EAF25 /* Reachability.swift in Sources */,
 				B881B79620861DA4000EAF25 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
