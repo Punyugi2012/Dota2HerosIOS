@@ -45,7 +45,9 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroCell", for: indexPath) as? HeroCollectionViewCell {
             cell.heroName.text = heros[indexPath.row].localized_name
-            cell.heroImage.image = UIImage(named: "background")
+            cell.heroImage.image = UIImage(named: "Background")
+            cell.heroImage.layer.cornerRadius = cell.heroImage.frame.height / 2
+            cell.heroImage.clipsToBounds = true
             return cell
         }
         return UICollectionViewCell()
