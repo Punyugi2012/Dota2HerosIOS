@@ -8,9 +8,11 @@
 
 import UIKit
 
-struct Hero:Decodable {
+class Hero:Decodable {
     var localized_name: String
     var img: String
+    var heroImage: UIImage?
+    private enum CodingKeys: String, CodingKey {case localized_name, img}
 }
 
 extension UIImageView {
@@ -84,11 +86,12 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroCell", for: indexPath) as! HeroCollectionViewCell
-        cell.heroName.text = heros[indexPath.row].localized_name
-        let defaultLink = "https://api.opendota.com"
-        if Reachability.isConnectNetwork() {
-            cell.heroImage.downloadedFrom(link: defaultLink + heros[indexPath.row].img)
-        }
+        cell.setValue(self.heros[indexPath.row])
+//        cell.heroName.text = heros[indexPath.row].localized_name
+//        let defaultLink = "https://api.opendota.com"
+//        if Reachability.isConnectNetwork() {
+//            cell.heroImage.downloadedFrom(link: defaultLink + heros[indexPath.row].img)
+//        }
         cell.heroImage.layer.cornerRadius = cell.heroImage.frame.height / 2
         cell.heroImage.clipsToBounds = true
         cell.heroImage.contentMode = .scaleAspectFill
