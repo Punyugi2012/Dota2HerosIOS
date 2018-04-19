@@ -49,7 +49,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     }
     
     @objc func feedData() {
-        if Reachability.isConnectNetwork() {
+        if Reachability.isConnectedToNetwork() {
             let url = URL(string: "https://api.opendota.com/api/heroStats")
             URLSession.shared.dataTask(with: url!) { (data, reponse, error) in
                 if error == nil {
@@ -87,11 +87,6 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroCell", for: indexPath) as! HeroCollectionViewCell
         cell.setValue(self.heros[indexPath.row])
-//        cell.heroName.text = heros[indexPath.row].localized_name
-//        let defaultLink = "https://api.opendota.com"
-//        if Reachability.isConnectNetwork() {
-//            cell.heroImage.downloadedFrom(link: defaultLink + heros[indexPath.row].img)
-//        }
         cell.heroImage.layer.cornerRadius = cell.heroImage.frame.height / 2
         cell.heroImage.clipsToBounds = true
         cell.heroImage.contentMode = .scaleAspectFill

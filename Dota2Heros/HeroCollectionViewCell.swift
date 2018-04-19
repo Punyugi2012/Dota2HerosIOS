@@ -17,7 +17,7 @@ class HeroCollectionViewCell: UICollectionViewCell {
             self.heroImage.image = hero.heroImage
         }
         else {
-            if Reachability.isConnectNetwork() {
+            if Reachability.isConnectedToNetwork() {
                 self.setImage(hero)
             }
         }
