@@ -14,6 +14,10 @@
 		B881B7A020861DA7000EAF25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B881B79E20861DA7000EAF25 /* LaunchScreen.storyboard */; };
 		B881B7A82086E6C1000EAF25 /* HeroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881B7A72086E6C1000EAF25 /* HeroCollectionViewCell.swift */; };
 		B881B7AA20870388000EAF25 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B881B7A920870388000EAF25 /* Reachability.swift */; };
+		B8CB1356208E137100EB2AA4 /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB1355208E137100EB2AA4 /* HeroDetailViewController.swift */; };
+		B8CB1358208E159800EB2AA4 /* HeroImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB1357208E159800EB2AA4 /* HeroImageTableViewCell.swift */; };
+		B8CB135A208E15A200EB2AA4 /* PriAttrTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB1359208E15A200EB2AA4 /* PriAttrTableViewCell.swift */; };
+		B8CB135C208E15BB00EB2AA4 /* AttackTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB135B208E15BB00EB2AA4 /* AttackTypeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		B881B7A120861DA7000EAF25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B881B7A72086E6C1000EAF25 /* HeroCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCollectionViewCell.swift; sourceTree = "<group>"; };
 		B881B7A920870388000EAF25 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		B8CB1355208E137100EB2AA4 /* HeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
+		B8CB1357208E159800EB2AA4 /* HeroImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImageTableViewCell.swift; sourceTree = "<group>"; };
+		B8CB1359208E15A200EB2AA4 /* PriAttrTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriAttrTableViewCell.swift; sourceTree = "<group>"; };
+		B8CB135B208E15BB00EB2AA4 /* AttackTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackTypeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,10 @@
 				B881B7A120861DA7000EAF25 /* Info.plist */,
 				B881B7A72086E6C1000EAF25 /* HeroCollectionViewCell.swift */,
 				B881B7A920870388000EAF25 /* Reachability.swift */,
+				B8CB1355208E137100EB2AA4 /* HeroDetailViewController.swift */,
+				B8CB1357208E159800EB2AA4 /* HeroImageTableViewCell.swift */,
+				B8CB1359208E15A200EB2AA4 /* PriAttrTableViewCell.swift */,
+				B8CB135B208E15BB00EB2AA4 /* AttackTypeTableViewCell.swift */,
 			);
 			path = Dota2Heros;
 			sourceTree = "<group>";
@@ -142,9 +154,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B881B79820861DA4000EAF25 /* ViewController.swift in Sources */,
+				B8CB1356208E137100EB2AA4 /* HeroDetailViewController.swift in Sources */,
 				B881B7A82086E6C1000EAF25 /* HeroCollectionViewCell.swift in Sources */,
+				B8CB135A208E15A200EB2AA4 /* PriAttrTableViewCell.swift in Sources */,
 				B881B7AA20870388000EAF25 /* Reachability.swift in Sources */,
+				B8CB135C208E15BB00EB2AA4 /* AttackTypeTableViewCell.swift in Sources */,
 				B881B79620861DA4000EAF25 /* AppDelegate.swift in Sources */,
+				B8CB1358208E159800EB2AA4 /* HeroImageTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,10 +9,13 @@
 import UIKit
 
 class Hero:Decodable {
+    var id: Int
     var localized_name: String
     var img: String
+    var primary_attr: String
+    var attack_type: String
     var heroImage: UIImage?
-    private enum CodingKeys: String, CodingKey {case localized_name, img}
+    private enum CodingKeys: String, CodingKey {case id, localized_name, img, primary_attr, attack_type}
 }
 
 extension UIImageView {
@@ -45,6 +48,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.myCollectionView.allowsMultipleSelection = false
         feedData()
     }
     
@@ -101,6 +105,20 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HeroDetail" {
+            if let destination = segue.destination as? HeroDetailViewController {
+                let hero = self.heros[(self.myCollectionView.indexPathsForSelectedItems?.first?.row)!]
+                destination.title = hero.localized_name
+                destination.hero = hero
+            }
+            else {
+                print("Error")
+            }
+        }
+        else {
+            print("not found segue")
+        }
+    }
 }
 
