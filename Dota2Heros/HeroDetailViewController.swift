@@ -32,12 +32,13 @@ class HeroDetailViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HeroImage") as! HeroImageTableViewCell
+            cell.imageHero.layer.cornerRadius = 3
+            cell.imageHero.clipsToBounds = true
             if self.hero.heroImage != nil  {
                 cell.imageHero.image = self.hero.heroImage
             }
             else {
                 cell.imageHero.image = UIImage(named: "Background")
-                print("HI")
             }
             return cell
         }
